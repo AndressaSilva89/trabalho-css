@@ -1,0 +1,244 @@
+
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --header-bg: #0b1a30;
+    --header-text: #ffffff;
+    --link-color: #0d6efd;
+    --link-hover: #0a58ca;
+    --font-heading: 'Roboto Slab', serif;
+    --font-body: 'Open Sans', sans-serif;
+    --container-max: 800px;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--header-bg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+
+.site-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+   
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+
+.menu-toggle-checkbox {
+    display: none;
+}
+
+.menu-icon {
+    cursor: pointer;
+    padding: 10px 0;
+    position: relative;
+    user-select: none;
+}
+
+
+.navicon {
+    background: var(--header-text);
+    display: block;
+    height: 3px;
+    width: 25px;
+    position: relative;
+    transition: background .2s ease-out;
+}
+
+
+.navicon::before,
+.navicon::after {
+    background: var(--header-text);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+.navicon::before { top: 8px; }
+.navicon::after { top: -8px; }
+
+
+.menu-toggle-checkbox:checked ~ .menu-icon .navicon {
+    background: transparent;
+}
+.menu-toggle-checkbox:checked ~ .menu-icon .navicon::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+.menu-toggle-checkbox:checked ~ .menu-icon .navicon::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.main-nav {
+    width: 100%;
+    display: none;
+}
+
+
+.menu-toggle-checkbox:checked ~ .main-nav {
+    display: block;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-list li a {
+    display: block;
+    padding: 1rem 0;
+    color: var(--header-text);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+.nav-list li a:hover {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+
+section {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+figcaption {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.secao-galeria {
+    background-color: #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+}
+
+.galeria-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card-foto {
+    flex: 1 1 calc(50% - 1.5rem);
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card-foto p {
+    margin: 0.5rem 0 0 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.referencias {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ced4da;
+    font-size: 0.9rem;
+}
+
+
+.site-footer {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+}
+
+.site-footer p {
+    margin: 0.5rem 0;
+}
+
+@media (min-width: 768px) {
+   
+       
+    .card-foto {
+        flex: 1 1 calc(25% - 1.5rem); 
+    }
+}
